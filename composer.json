@@ -1,10 +1,16 @@
 {
     "name": "shohan494/php-key-value-store",
+    "description": "An example of a simple key-value store in php",
+    "type": "project",
     "authors": [
         {
             "name": "Shohan494",
             "email": "shohan12224943@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ExampleApp\\": "src/"
+        }
 }
