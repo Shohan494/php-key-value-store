@@ -8,4 +8,6 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $newCloneRedis = new \ExampleApp\CloneRedis();
 
-var_dump($newCloneRedis);
+
+
+var_dump($newCloneRedis->get('keyName'));

@@ -34,6 +34,16 @@ class CloneRedis
         return null;
     }
 
+    public function get($keyName)
+    {
+        $this->__get($keyName);
+    }
+
+    public function set($keyName, $keyValue)
+    {
+        $this->__set($keyName, $keyValue);
+    }
+
     public function __isset($name)
     {
         echo "Is '$name' set?\n";
