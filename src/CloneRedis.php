@@ -49,17 +49,17 @@ class CloneRedis
         return $this->getCurrentStore();
     }
 
-    // public function __isset($name)
-    // {
-    //     echo "Is '$name' set?\n";
-    //     return isset($this->data[$name]);
-    // }
-    //
-    // public function __unset($name)
-    // {
-    //     echo "Unsetting '$name'\n";
-    //     unset($this->data[$name]);
-    // }
+    public function __isset($name)
+    {
+        echo "Is '$name' set?\n";
+        return isset($this->data[$name]);
+    }
+
+    public function __unset($name)
+    {
+        echo "Unsetting '$name'\n";
+        unset($this->data[$name]);
+    }
 
     private function getCurrentStore()
     {

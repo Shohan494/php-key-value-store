@@ -21,6 +21,8 @@ $newCloneRedis->set('myKey1', 'myValue1');
 $newCloneRedis->set('myKey2', 'myValue2');
 $newCloneRedis->set('myKey3', 'myValue3');
 
+$newCloneRedis->__unset('myKey3', 'myValue3');
+
 $myKeyOutput = $newCloneRedis->get('myKey2');
 
 getCodeView($myKeyOutput);
