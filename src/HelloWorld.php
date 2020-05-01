@@ -5,7 +5,7 @@ namespace ExampleApp;
 
 class HelloWorld
 {
-    public function announce()
+    public function announce():void
     {
         echo 'Hello, autoloaded world!';
     }
