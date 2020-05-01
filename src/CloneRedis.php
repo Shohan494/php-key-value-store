@@ -6,10 +6,10 @@ namespace ExampleApp;
 class CloneRedis
 {
     private $data = array();
-    private $declared = false;
+    private bool $declared = false;
 
     public function __construct() {
-        $this->declared = true;
+        //$this->declared = true;
     }
 
     public function __set($name, $value)
@@ -36,7 +36,7 @@ class CloneRedis
 
     public function get($keyName)
     {
-        $this->__get($keyName);
+        return $this->__get($keyName);
     }
 
     public function set($keyName, $keyValue)
@@ -44,35 +44,41 @@ class CloneRedis
         $this->__set($keyName, $keyValue);
     }
 
-    public function __isset($name)
+    public function viewStore()
     {
-        echo "Is '$name' set?\n";
-        return isset($this->data[$name]);
+        return $this->getCurrentStore();
     }
 
-    public function __unset($name)
+    // public function __isset($name)
+    // {
+    //     echo "Is '$name' set?\n";
+    //     return isset($this->data[$name]);
+    // }
+    //
+    // public function __unset($name)
+    // {
+    //     echo "Unsetting '$name'\n";
+    //     unset($this->data[$name]);
+    // }
+
+    private function getCurrentStore()
     {
-        echo "Unsetting '$name'\n";
-        unset($this->data[$name]);
+        echo "called getCurrentStore \n";
+        return $this->data;
     }
 
-    public function getHidden()
-    {
-        return $this->hidden;
-    }
-
-    public function __call($name, $arguments)
-    {
-        // Note: value of $name is case sensitive.
-        echo "Calling object method '$name' "
-             . implode(', ', $arguments). "\n";
-    }
-
-    public static function __callStatic($name, $arguments)
-    {
-        echo "Calling static method '$name' "
-             . implode(', ', $arguments). "\n";
-    }
+    // public function __call($name, $arguments)
+    // {
+    //     // Note: value of $name is case sensitive.
+    //     echo "Calling object method '$name' "
+    //          . implode(', ', $arguments). "\n";
+    // }
+    //
+    // public static function __callStatic($name, $arguments)
+    // {
+    //     echo "Calling static method '$name' "
+    //          . implode(', ', $arguments). "\n";
+    // }
 
 
 }

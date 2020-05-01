@@ -16,9 +16,13 @@ function getCodeView($data)
 
 $newCloneRedis = new \ExampleApp\CloneRedis();
 
-//var_dump($newCloneRedis->get('keyName'));
 
-var_dump($newCloneRedis->set('myKey', 'myValue'));
+$newCloneRedis->set('myKey1', 'myValue1');
+$newCloneRedis->set('myKey2', 'myValue2');
+$newCloneRedis->set('myKey3', 'myValue3');
 
+$myKeyOutput = $newCloneRedis->get('myKey2');
 
-getCodeView($newCloneRedis);
+getCodeView($myKeyOutput);
+
+getCodeView($newCloneRedis->viewStore());
