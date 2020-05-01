@@ -5,15 +5,65 @@ namespace ExampleApp;
 
 class CloneRedis
 {
-    //protected $array = array();
+    private $data = array();
+    private $declared = false;
 
-    function __construct()
-    {
-        //$this->array = $array;
+    public function __construct() {
+        $this->declared = true;
     }
 
-    function createArray(): array
+    public function __set($name, $value)
     {
-        return array();
+        echo "Setting '$name' to '$value'\n";
+        $this->data[$name] = $value;
     }
+
+    public function __get($name)
+    {
+        echo "Getting '$name'\n";
+        if (array_key_exists($name, $this->data)) {
+            return $this->data[$name];
+        }
+
+        $trace = debug_backtrace();
+        trigger_error(
+            'Undefined property via __get(): ' . $name .
+            ' in ' . $trace[0]['file'] .
+            ' on line ' . $trace[0]['line'],
+            E_USER_NOTICE);
+        return null;
+    }
+
+    public function __isset($name)
+    {
+        echo "Is '$name' set?\n";
+        return isset($this->data[$name]);
+    }
+
+    public function __unset($name)
+    {
+        echo "Unsetting '$name'\n";
+        unset($this->data[$name]);
+    }
+
+    public function getHidden()
+    {
+        return $this->hidden;
+    }
+
+    public function __call($name, $arguments)
+    {
+        // Note: value of $name is case sensitive.
+        echo "Calling object method '$name' "
+             . implode(', ', $arguments). "\n";
+    }
+
+    /**  As of PHP 5.3.0  */
+    public static function __callStatic($name, $arguments)
+    {
+        // Note: value of $name is case sensitive.
+        echo "Calling static method '$name' "
+             . implode(', ', $arguments). "\n";
+    }
+
 }
