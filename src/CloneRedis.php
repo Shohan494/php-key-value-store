@@ -67,6 +67,16 @@ class CloneRedis
         return $this->data;
     }
 
+    public function exists($keyName): int
+    {
+        $exists = array_key_exists($keyName, $this->data);
+        if($exists)
+        {
+            return 1;
+        }
+        return 0;
+    }
+
     // public function __call($name, $arguments)
     // {
     //     // Note: value of $name is case sensitive.

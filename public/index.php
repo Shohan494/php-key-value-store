@@ -23,6 +23,11 @@ $newCloneRedis->set('myKey3', 'myValue3');
 
 $newCloneRedis->__unset('myKey3', 'myValue3');
 
+$keyExists = $newCloneRedis->exists('myKey6');
+
+getCodeView($keyExists);
+
+
 $myKeyOutput = $newCloneRedis->get('myKey2');
 
 getCodeView($myKeyOutput);
