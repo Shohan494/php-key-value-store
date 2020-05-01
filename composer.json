@@ -1,0 +1,10 @@
+{
+    "name": "shohan494/php-key-value-store",
+    "authors": [
+        {
+            "name": "Shohan494",
+            "email": "shohan12224943@gmail.com"
+        }
+    ],
+    "require": {}
+}
