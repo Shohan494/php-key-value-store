@@ -7,7 +7,6 @@ class BaseRedis
 {
     protected array $data; // key value store / associative array
     private bool $declared = false;
-
     //private array $list;
 
 
@@ -48,6 +47,84 @@ class BaseRedis
     protected function baseKeyExists($keyName): bool
     {
         return array_key_exists($keyName, $this->data);
+    }
+
+    protected function pushListItem($keyName, $value)
+    {
+        //if key exists then get the value
+        //then the value type
+        //if array then proceed
+
+        // if($position == 'end')
+        // {
+        //
+        // }
+
+
+        $exists = $this->baseKeyExists($keyName);
+        if($exists)
+        {
+            $retrievedKeyValue = $this->get($keyName);
+            $result = is_array($retrievedKeyValue) ? array_push($retrievedKeyValue, $value) : false;
+
+            if($result)
+            {
+                $this->set($keyName, $retrievedKeyValue);
+                return $retrievedKeyValue;
+            }
+            else
+            {
+                // not sure right now what to do
+            }
+        }
+        else
+        {
+            //else we create the new array and then push the data and then set the key as value with the array
+            // CAN BE MOVED TO A METHOD #1
+            $newArray = array();
+            array_push($newArray, $value);
+            $this->set($keyName, $newArray);
+            return $newArray;
+        }
+    }
+
+    protected function unshiftListItem($keyName, $value)
+    {
+        //if key exists then get the value
+        //then the value type
+        //if array then proceed
+
+        // if($position == 'end')
+        // {
+        //
+        // }
+
+
+        $exists = $this->baseKeyExists($keyName);
+        if($exists)
+        {
+            $retrievedKeyValue = $this->get($keyName);
+            $result = is_array($retrievedKeyValue) ? array_unshift($retrievedKeyValue, $value) : false;
+
+            if($result)
+            {
+                $this->set($keyName, $retrievedKeyValue);
+                return $retrievedKeyValue;
+            }
+            else
+            {
+                // not sure right now what to do
+            }
+        }
+        else
+        {
+            //else we create the new array and then push the data and then set the key as value with the array
+            // CAN BE MOVED TO A METHOD #1
+            $newArray = array();
+            array_unshift($newArray, $value);
+            $this->set($keyName, $newArray);
+            return $newArray;
+        }
     }
 
     // USE TERNERY OPERATOR IN CASE OF IF ELSE

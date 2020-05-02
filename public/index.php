@@ -30,6 +30,8 @@ $newCloneRedis = new \CactusPhpRedis\CloneRedis();
 $rpushResult = $newCloneRedis->rpush('friends', 'shohanR');
 $lpushResult = $newCloneRedis->lpush('friends', 'shohanL');
 $lpushResult = $newCloneRedis->lpush('friends', 'shohanLast');
+$lpushResult = $newCloneRedis->lpush('friends', 'shohanLast');
+$lpushResult = $newCloneRedis->lpush('friends', 'shohanLast');
 
 getCodeView($lpushResult);
 

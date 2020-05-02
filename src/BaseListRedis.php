@@ -40,6 +40,9 @@ class BaseRedis
     }
 
 
+    }
+
+
     // USE TERNERY OPERATOR IN CASE OF IF ELSE
 
     // TIMEOUT RESOURCE SET
