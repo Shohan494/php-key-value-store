@@ -5,10 +5,11 @@ namespace ExampleApp;
 
 class BaseRedis
 {
-    protected array $data;
+    //protected array $data;
     private bool $declared = false;
 
     // private - so needed getter setter method here in this class
+    // protected array $data;
 
     // protected
 
