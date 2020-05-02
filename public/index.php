@@ -27,7 +27,9 @@ $newCloneRedis = new \CactusPhpRedis\CloneRedis();
 //$newCloneRedis->set('myKey3');
 
 
-$newCloneRedis->rpush('friends', 'shohan');
+$rpushResult = $newCloneRedis->rpush('friends', 'shohan');
+
+print_r($rpushResult);
 
 // $newCloneRedis->set('myKey3', 'myValue3');
 //
@@ -65,4 +67,4 @@ $newCloneRedis->rpush('friends', 'shohan');
 //
 // $newCloneRedis->decrement('totalNewKey', 5);
 //
-getCodeView($newCloneRedis->viewStore());
+//getCodeView($newCloneRedis->viewStore());

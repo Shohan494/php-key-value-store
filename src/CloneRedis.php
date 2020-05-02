@@ -73,25 +73,35 @@ class CloneRedis extends BaseRedis
     {
         echo "rpush to list";
 
-        // will do later
-        //$this->baseKeyExists($keyName);
         //if key exists then get the value
         //then the value type
         //if array then proceed
 
-        //if not we have to think something else
+        $exists = $this->baseKeyExists($keyName);
+        if($exists)
+        {
+            $retrievedKeyValue = $this->get($keyName);
+            $result = is_array($retrievedKeyValue) ? array_push($retrievedKeyValue, $value) : false;
 
-        // THIS SOLUTION IS APPLICABLE ONLY WHEN KEY DOES NOT EXIST
+            if($result)
+            {
+                $this->set($keyName, $retrievedKeyValue);
+                return $retrievedKeyValue;
+            }
+            else
+            {
+                // not sure right now what to do
+            }
+        }
+        else
+        {
+            //else we create the new array and then push the data and then set the key as value with the array
 
-        $listArray = array();
-        array_push($listArray, $value);
-
-        $this->set($keyName, $listArray);
-
-        //$keyValueAsArray = $this->get($keyName);
-        //array_push($keyValueAsArray, $value);
-
-        //$this->baseKeyExists($keyName) ?  array_push($keyName, $value) : array_push($keyName, $value);
+            $newArray = array();
+            array_push($newArray, $value);
+            $this->set($keyName, $newArray);
+            return $newArray;
+        }
     }
 
     // public function __call($name, $arguments)
