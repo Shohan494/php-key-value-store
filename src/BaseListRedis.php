@@ -5,26 +5,20 @@ namespace CactusPhpRedis;
 
 class BaseRedis
 {
-    protected array $data; // key value store / associative array
     private bool $declared = false;
-
-    //private array $list;
-
-
+    private array $list;
     // private - so needed getter setter method here in this class
-    // protected array $data;
 
     public function __construct() {
-        $this->data = array();
-        //$this->list = array();
+        $this->list = array();
         $this->declared = true;
-        echo "Base Redis Constructor";
+        echo "Base List Redis Constructor";
     }
 
-    public function __set($keyName, $value = null)
+    public function __set($value)
     {
-        echo "setting key or key-value";
-        $value = null ?  array_push($this->data, $keyName) : $this->data[$keyName] = $value;
+        echo "Setting '$value' to list \n";
+        $this->data[$keyName] = $value;
     }
 
     public function __get($keyName)
@@ -45,10 +39,6 @@ class BaseRedis
         return null;
     }
 
-    protected function baseKeyExists($keyName): bool
-    {
-        return array_key_exists($keyName, $this->data);
-    }
 
     // USE TERNERY OPERATOR IN CASE OF IF ELSE
 

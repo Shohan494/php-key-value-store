@@ -9,4 +9,6 @@ class ListRedis extends BaseRedis
         parent::__construct();
         echo "List Redis Constructor";
     }
+
+    
 }

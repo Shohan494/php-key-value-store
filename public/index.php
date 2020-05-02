@@ -16,7 +16,10 @@ function getCodeView($data)
 
 
 $newCloneRedis = new \CactusPhpRedis\CloneRedis();
-//
+
+$newCloneRedis->set('myKey1');
+
+
 // $newCloneRedis->set('myKey1', 'myValue1');
 // $newCloneRedis->set('myKey2', 'myValue2');
 // $newCloneRedis->set('myKey3', 'myValue3');
@@ -35,7 +38,7 @@ $newCloneRedis = new \CactusPhpRedis\CloneRedis();
 //
 // $newCloneRedis->increment('value1', 10);
 //
-// $myKeyOutput = $newCloneRedis->get('value1');
+$myKeyOutput = $newCloneRedis->get('myKey1');
 //
 // getCodeView($myKeyOutput);
 //
@@ -55,4 +58,4 @@ $newCloneRedis = new \CactusPhpRedis\CloneRedis();
 //
 // $newCloneRedis->decrement('totalNewKey', 5);
 //
-// getCodeView($newCloneRedis->viewStore());
+getCodeView($newCloneRedis->viewStore());

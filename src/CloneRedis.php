@@ -15,7 +15,7 @@ class CloneRedis extends BaseRedis
         return $this->__get($keyName);
     }
 
-    public function set($keyName, $keyValue)
+    public function set($keyName, $keyValue = null)
     {
         $this->__set($keyName, $keyValue);
     }
