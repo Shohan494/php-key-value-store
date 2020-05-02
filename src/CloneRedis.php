@@ -5,28 +5,29 @@ namespace ExampleApp;
 
 class CloneRedis extends BaseRedis
 {
-
     public function __construct() {
         parent::__construct();
         echo "Clone Redis Constructor";
     }
 
-    public function __set($name, $value)
+    public function __set($keyName, $value)
     {
-        echo "Setting '$name' to '$value'\n";
-        $this->data[$name] = $value;
+        echo "Setting '$keyName' to '$value'\n";
+        $this->data[$keyName] = $value;
     }
 
-    public function __get($name)
+    public function __get($keyName)
     {
-        echo "Getting '$name'\n";
-        if (array_key_exists($name, $this->data)) {
-            return $this->data[$name];
-        }
+        echo "Getting '$keyName'\n";
 
+        $exists = $this->baseKeyExists($keyName);
+        if($exists)
+        {
+            return $this->data[$keyName];
+        }
         $trace = debug_backtrace();
         trigger_error(
-            'Undefined property via __get(): ' . $name .
+            'Undefined property via __get(): ' . $keyName .
             ' in ' . $trace[0]['file'] .
             ' on line ' . $trace[0]['line'],
             E_USER_NOTICE);
@@ -48,16 +49,16 @@ class CloneRedis extends BaseRedis
         return $this->getCurrentStore();
     }
 
-    public function __isset($name)
+    public function __isset($keyName)
     {
-        echo "Is '$name' set?\n";
-        return isset($this->data[$name]);
+        echo "Is '$keyName' set?\n";
+        return isset($this->data[$keyName]);
     }
 
-    public function __unset($name)
+    public function __unset($keyName)
     {
-        echo "Unsetting '$name'\n";
-        unset($this->data[$name]);
+        echo "Unsetting '$keyName'\n";
+        unset($this->data[$keyName]);
     }
 
     private function getCurrentStore()

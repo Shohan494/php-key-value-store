@@ -5,10 +5,12 @@ namespace ExampleApp;
 
 class BaseRedis
 {
-    private array $data;
+    protected array $data;
     private bool $declared = false;
 
-    // private protected
+    // private - so needed getter setter method here in this class
+
+    // protected
 
     public function __construct() {
         $this->data = array();
@@ -16,7 +18,7 @@ class BaseRedis
         echo "Base Redis Constructor";
     }
 
-    protected function baseKeyExists($keyname)
+    protected function baseKeyExists($keyName): bool
     {
         return array_key_exists($keyName, $this->data);
     }
