@@ -12,44 +12,47 @@ function getCodeView($data)
   echo "</pre>";
 }
 
-$newCloneRedis = new \ExampleApp\CloneRedis();
-
-$newCloneRedis->set('myKey1', 'myValue1');
-$newCloneRedis->set('myKey2', 'myValue2');
-$newCloneRedis->set('myKey3', 'myValue3');
-
-$newCloneRedis->__unset('myKey3', 'myValue3');
-
-$keyExists = $newCloneRedis->exists('myKey6');
-
-getCodeView($keyExists);
+//$newListRedis = new \ExampleApp\ListRedis();
 
 
-$newCloneRedis->set('value', 10);
-$newCloneRedis->increment('value', 10);
-
-$myKeyOutput = $newCloneRedis->get('value');
-
-$newCloneRedis->increment('value1', 10);
-
-$myKeyOutput = $newCloneRedis->get('value1');
-
-getCodeView($myKeyOutput);
-
-$newCloneRedis->increment('myKey1', 10);
-
-$newCloneRedis->delete('myKey2');
-
-$newCloneRedis->increment('myKey1', 10);
-$newCloneRedis->increment('myKey1');
-
-$newCloneRedis->increment('newKey');
-getCodeView($newCloneRedis->viewStore());
-
-
-$newCloneRedis->decrement('myKey1', 10);
-$newCloneRedis->decrement('myKey1');
-
-$newCloneRedis->decrement('totalNewKey', 5);
-
-getCodeView($newCloneRedis->viewStore());
+$newCloneRedis = new \CactusPhpRedis\CloneRedis();
+//
+// $newCloneRedis->set('myKey1', 'myValue1');
+// $newCloneRedis->set('myKey2', 'myValue2');
+// $newCloneRedis->set('myKey3', 'myValue3');
+//
+// $newCloneRedis->__unset('myKey3', 'myValue3');
+//
+// $keyExists = $newCloneRedis->exists('myKey6');
+//
+// getCodeView($keyExists);
+//
+//
+// $newCloneRedis->set('value', 10);
+// $newCloneRedis->increment('value', 10);
+//
+// $myKeyOutput = $newCloneRedis->get('value');
+//
+// $newCloneRedis->increment('value1', 10);
+//
+// $myKeyOutput = $newCloneRedis->get('value1');
+//
+// getCodeView($myKeyOutput);
+//
+// $newCloneRedis->increment('myKey1', 10);
+//
+// $newCloneRedis->delete('myKey2');
+//
+// $newCloneRedis->increment('myKey1', 10);
+// $newCloneRedis->increment('myKey1');
+//
+// $newCloneRedis->increment('newKey');
+// getCodeView($newCloneRedis->viewStore());
+//
+//
+// $newCloneRedis->decrement('myKey1', 10);
+// $newCloneRedis->decrement('myKey1');
+//
+// $newCloneRedis->decrement('totalNewKey', 5);
+//
+// getCodeView($newCloneRedis->viewStore());

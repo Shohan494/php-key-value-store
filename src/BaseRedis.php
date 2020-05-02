@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace ExampleApp;
+namespace CactusPhpRedis;
 
 class BaseRedis
 {
