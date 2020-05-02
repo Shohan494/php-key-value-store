@@ -44,5 +44,11 @@ $newCloneRedis->increment('myKey1', 10);
 $newCloneRedis->increment('myKey1');
 
 $newCloneRedis->increment('newKey');
+getCodeView($newCloneRedis->viewStore());
 
+
+$newCloneRedis->decrement('myKey1', 10);
+$newCloneRedis->decrement('myKey1');
+
+$newCloneRedis->decrement('newKey');
 getCodeView($newCloneRedis->viewStore());

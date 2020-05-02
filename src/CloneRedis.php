@@ -62,7 +62,11 @@ class CloneRedis extends BaseRedis
     public function increment($keyName, $incrementalValue = 1)
     {
         $exists = $this->baseKeyExists($keyName) ?  $this->set($keyName, $this->get($keyName) + $incrementalValue) : $this->set($keyName, $incrementalValue);
+    }
 
+    public function decrement($keyName, $decrementalValue = 1)
+    {
+        $exists = $this->baseKeyExists($keyName) ?  $this->set($keyName, $this->get($keyName) - $decrementalValue) : $this->set($keyName, $decrementalValue);
     }
 
     // public function __call($name, $arguments)
