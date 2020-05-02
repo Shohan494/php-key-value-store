@@ -37,6 +37,11 @@ class CloneRedis extends BaseRedis
         unset($this->data[$keyName]);
     }
 
+    public function delete($keyName)
+    {
+        $this->__unset($keyName);
+    }
+
     private function getCurrentStore()
     {
         echo "called getCurrentStore \n";

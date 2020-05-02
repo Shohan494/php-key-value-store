@@ -36,4 +36,7 @@ $myKeyOutput = $newCloneRedis->get('value1');
 
 getCodeView($myKeyOutput);
 
+$newCloneRedis->increment('myKey1', 10);
+
+
 getCodeView($newCloneRedis->viewStore());
