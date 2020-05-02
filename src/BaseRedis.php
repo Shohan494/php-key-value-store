@@ -55,6 +55,8 @@ class BaseRedis
         //then the value type
         //if array then proceed
 
+        // WILL TRY TO MAKE LPUSH, RPUSH ONE SINGLE METHOD
+
         // if($position == 'end')
         // {
         //
@@ -90,16 +92,6 @@ class BaseRedis
 
     protected function unshiftListItem($keyName, $value)
     {
-        //if key exists then get the value
-        //then the value type
-        //if array then proceed
-
-        // if($position == 'end')
-        // {
-        //
-        // }
-
-
         $exists = $this->baseKeyExists($keyName);
         if($exists)
         {
@@ -118,7 +110,6 @@ class BaseRedis
         }
         else
         {
-            //else we create the new array and then push the data and then set the key as value with the array
             // CAN BE MOVED TO A METHOD #1
             $newArray = array();
             array_unshift($newArray, $value);
