@@ -17,13 +17,14 @@ function getCodeView($data)
 
 $newCloneRedis = new \CactusPhpRedis\CloneRedis();
 
-$newCloneRedis->set('myKey1');
-
-$newCloneRedis->set('myKey1', 'myValue1');
-$newCloneRedis->set('myList', array());
+//$newCloneRedis->set('myKey1');
+//$newCloneRedis->set('myKey1', 'myValue1');
 
 
-$newCloneRedis->set('myKey3');
+//$newCloneRedis->set('myList', array()); // PROBABLY NOT RIGHT WAY
+
+
+//$newCloneRedis->set('myKey3');
 
 
 $newCloneRedis->rpush('friends', 'shohan');

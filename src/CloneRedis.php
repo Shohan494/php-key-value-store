@@ -69,6 +69,24 @@ class CloneRedis extends BaseRedis
         $exists = $this->baseKeyExists($keyName) ?  $this->set($keyName, $this->get($keyName) - $decrementalValue) : $this->set($keyName, 0 - $decrementalValue) ;
     }
 
+    public function rpush($keyName, $value)
+    {
+        echo "rpush to list";
+
+        // will do later
+        //$this->baseKeyExists($keyName);
+
+        $listArray = array();
+        array_push($listArray, $value);
+
+        $this->set($keyName, $listArray);
+
+        //$keyValueAsArray = $this->get($keyName);
+        //array_push($keyValueAsArray, $value);
+
+        //$this->baseKeyExists($keyName) ?  array_push($keyName, $value) : array_push($keyName, $value);
+    }
+
     // public function __call($name, $arguments)
     // {
     //     // Note: value of $name is case sensitive.

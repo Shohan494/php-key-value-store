@@ -21,17 +21,10 @@ class BaseRedis
         echo "Base Redis Constructor";
     }
 
-    public function rpush($keyName, $value = null)
-    {
-        echo "rpush to list";
-        //$this->baseKeyExists($keyName) ?  array_push($keyName, $value) : array_push($keyName, $value);
-    }
-
-    public function __set($keyName, $value = null)
+    public function __set($keyName, $value)
     {
         echo "setting key or key-value";
-        $value == null ?  array_push($this->data, $keyName) : $this->data[$keyName] = $value;
-        //array_push($this->data, $keyName);
+        $this->data[$keyName] = $value;
     }
 
     public function __get($keyName)
