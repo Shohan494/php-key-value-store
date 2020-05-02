@@ -19,9 +19,8 @@ $newCloneRedis = new \CactusPhpRedis\CloneRedis();
 
 $newCloneRedis->set('myKey1');
 
-
-// $newCloneRedis->set('myKey1', 'myValue1');
-// $newCloneRedis->set('myKey2', 'myValue2');
+$newCloneRedis->set('myKey1', 'myValue1');
+$newCloneRedis->set('myKey2', 'myValue2');
 // $newCloneRedis->set('myKey3', 'myValue3');
 //
 // $newCloneRedis->__unset('myKey3', 'myValue3');
@@ -38,7 +37,7 @@ $newCloneRedis->set('myKey1');
 //
 // $newCloneRedis->increment('value1', 10);
 //
-$myKeyOutput = $newCloneRedis->get('myKey1');
+//$myKeyOutput = $newCloneRedis->get('myKey1');
 //
 // getCodeView($myKeyOutput);
 //
