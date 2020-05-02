@@ -54,6 +54,9 @@ class BaseRedis
     // USE TERNERY OPERATOR IN CASE OF IF ELSE
 
     // TIMEOUT RESOURCE SET
+    // something came by - using timestamp and adding logic that
+    // after this timstamp the object or whatever will be
+    //unset/destructed/removed/deleted
 
     // INCRBY / DECRBY SEPARATE IMPLEMENTATION
 }
