@@ -69,7 +69,7 @@ class CloneRedis extends BaseRedis
         $exists = $this->baseKeyExists($keyName) ?  $this->set($keyName, $this->get($keyName) - $decrementalValue) : $this->set($keyName, 0 - $decrementalValue) ;
     }
 
-    public function rpush($keyName, $value)
+    public function rpush($keyName, $value) : array
     {
         echo "rpush to list";
 
@@ -96,9 +96,39 @@ class CloneRedis extends BaseRedis
         else
         {
             //else we create the new array and then push the data and then set the key as value with the array
-
+            // CAN BE MOVED TO A METHOD #1
             $newArray = array();
             array_push($newArray, $value);
+            $this->set($keyName, $newArray);
+            return $newArray;
+        }
+    }
+
+    public function lpush($keyName, $value) : array
+    {
+        echo "lpush to list";
+
+        $exists = $this->baseKeyExists($keyName);
+        if($exists)
+        {
+            $retrievedKeyValue = $this->get($keyName);
+            $result = is_array($retrievedKeyValue) ? array_unshift($retrievedKeyValue, $value) : false;
+
+            if($result)
+            {
+                $this->set($keyName, $retrievedKeyValue);
+                return $retrievedKeyValue;
+            }
+            else
+            {
+                // not sure right now what to do
+            }
+        }
+        else
+        {
+            // CAN BE MOVED TO A METHOD #1
+            $newArray = array();
+            array_unshift($newArray, $value);
             $this->set($keyName, $newArray);
             return $newArray;
         }
