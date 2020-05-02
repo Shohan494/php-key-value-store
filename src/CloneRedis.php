@@ -10,30 +10,6 @@ class CloneRedis extends BaseRedis
         echo "Clone Redis Constructor";
     }
 
-    public function __set($keyName, $value)
-    {
-        echo "Setting '$keyName' to '$value'\n";
-        $this->data[$keyName] = $value;
-    }
-
-    public function __get($keyName)
-    {
-        echo "Getting '$keyName'\n";
-
-        $exists = $this->baseKeyExists($keyName);
-        if($exists)
-        {
-            return $this->data[$keyName];
-        }
-        $trace = debug_backtrace();
-        trigger_error(
-            'Undefined property via __get(): ' . $keyName .
-            ' in ' . $trace[0]['file'] .
-            ' on line ' . $trace[0]['line'],
-            E_USER_NOTICE);
-        return null;
-    }
-
     public function get($keyName)
     {
         return $this->__get($keyName);
@@ -78,8 +54,9 @@ class CloneRedis extends BaseRedis
     }
 
 
-    public function increment($keyName)
+    public function increment($keyName, $incrementalValue = 0)
     {
+        $exists = $this->baseKeyExists($keyName) ?  $this->set($keyName, $this->get($keyName) + $incrementalValue) : $this->set($keyName, $incrementalValue);
 
     }
 

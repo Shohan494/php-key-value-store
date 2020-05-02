@@ -27,6 +27,8 @@ getCodeView($keyExists);
 getCodeView($newCloneRedis->viewStore());
 
 $newCloneRedis->set('value', 10);
+$newCloneRedis->increment('value', 10);
+
 $myKeyOutput = $newCloneRedis->get('value');
 
 getCodeView($myKeyOutput);
