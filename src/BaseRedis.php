@@ -30,7 +30,7 @@ class BaseRedis
     public function __set($keyName, $value = null)
     {
         echo "setting key or key-value";
-        $value = null ?  array_push($this->data, $keyName) : $this->data[$keyName] = $value;
+        $value == null ?  array_push($this->data, $keyName) : $this->data[$keyName] = $value;
         //array_push($this->data, $keyName);
     }
 
