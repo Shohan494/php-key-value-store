@@ -21,10 +21,16 @@ class BaseRedis
         echo "Base Redis Constructor";
     }
 
+    public function rpush($keyName, $value = null)
+    {
+        echo "rpush to list";
+        //$this->baseKeyExists($keyName) ?  array_push($keyName, $value) : array_push($keyName, $value);
+    }
+
     public function __set($keyName, $value = null)
     {
         echo "setting key or key-value";
-        $value == null ?  array_push($this->data, $keyName) : $this->data[$keyName] = $value;
+        $value = null ?  array_push($this->data, $keyName) : $this->data[$keyName] = $value;
         //array_push($this->data, $keyName);
     }
 
@@ -52,6 +58,8 @@ class BaseRedis
     }
 
     // USE TERNERY OPERATOR IN CASE OF IF ELSE
+    // CONFUSION IN TERNERY -> MUST BE RESOLVED
+
 
     // TIMEOUT RESOURCE SET
     // something came by - using timestamp and adding logic that
