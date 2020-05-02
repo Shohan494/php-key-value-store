@@ -50,5 +50,6 @@ getCodeView($newCloneRedis->viewStore());
 $newCloneRedis->decrement('myKey1', 10);
 $newCloneRedis->decrement('myKey1');
 
-$newCloneRedis->decrement('newKey');
+$newCloneRedis->decrement('totalNewKey', 5);
+
 getCodeView($newCloneRedis->viewStore());
