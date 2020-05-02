@@ -1,11 +1,9 @@
 <?php
 declare(strict_types=1);
-
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 // $helloWorld = new \ExampleApp\HelloWorld();
 // $helloWorld->announce();
-
 
 function getCodeView($data)
 {
@@ -15,7 +13,6 @@ function getCodeView($data)
 }
 
 $newCloneRedis = new \ExampleApp\CloneRedis();
-
 
 $newCloneRedis->set('myKey1', 'myValue1');
 $newCloneRedis->set('myKey2', 'myValue2');
@@ -27,9 +24,9 @@ $keyExists = $newCloneRedis->exists('myKey6');
 
 getCodeView($keyExists);
 
+getCodeView($newCloneRedis->viewStore());
 
-$myKeyOutput = $newCloneRedis->get('myKey2');
+$newCloneRedis->set('value', 10);
+$myKeyOutput = $newCloneRedis->get('value');
 
 getCodeView($myKeyOutput);
-
-getCodeView($newCloneRedis->viewStore());

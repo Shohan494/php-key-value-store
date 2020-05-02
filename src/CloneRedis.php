@@ -3,13 +3,12 @@ declare(strict_types=1);
 
 namespace ExampleApp;
 
-class CloneRedis
+class CloneRedis extends BaseRedis
 {
-    private $data = array();
-    private bool $declared = false;
 
     public function __construct() {
-        //$this->declared = true;
+        parent::__construct();
+        echo "Clone Redis Constructor";
     }
 
     public function __set($name, $value)
@@ -69,12 +68,18 @@ class CloneRedis
 
     public function exists($keyName): int
     {
-        $exists = array_key_exists($keyName, $this->data);
+        $exists = $this->baseKeyExists($keyName);
         if($exists)
         {
             return 1;
         }
         return 0;
+    }
+
+
+    public function increment($keyName)
+    {
+
     }
 
     // public function __call($name, $arguments)
