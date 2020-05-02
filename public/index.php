@@ -24,11 +24,16 @@ $keyExists = $newCloneRedis->exists('myKey6');
 
 getCodeView($keyExists);
 
-getCodeView($newCloneRedis->viewStore());
 
 $newCloneRedis->set('value', 10);
 $newCloneRedis->increment('value', 10);
 
 $myKeyOutput = $newCloneRedis->get('value');
 
+$newCloneRedis->increment('value1', 10);
+
+$myKeyOutput = $newCloneRedis->get('value1');
+
 getCodeView($myKeyOutput);
+
+getCodeView($newCloneRedis->viewStore());
