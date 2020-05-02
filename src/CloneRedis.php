@@ -75,6 +75,13 @@ class CloneRedis extends BaseRedis
 
         // will do later
         //$this->baseKeyExists($keyName);
+        //if key exists then get the value
+        //then the value type
+        //if array then proceed
+
+        //if not we have to think something else
+
+        // THIS SOLUTION IS APPLICABLE ONLY WHEN KEY DOES NOT EXIST
 
         $listArray = array();
         array_push($listArray, $value);
