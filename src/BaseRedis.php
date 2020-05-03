@@ -118,6 +118,16 @@ class BaseRedis
         }
     }
 
+    protected function removeListItem($keyName)
+    {
+        $exists = $this->baseKeyExists($keyName);
+        if($exists)
+        {
+            $retrievedKeyValue = $this->get($keyName);
+            $result = is_array($retrievedKeyValue) ? array_pop($retrievedKeyValue) : false;
+        }
+    }
+
     // USE TERNERY OPERATOR IN CASE OF IF ELSE
     // CONFUSION IN TERNERY -> MUST BE RESOLVED
 

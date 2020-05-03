@@ -83,6 +83,15 @@ class CloneRedis extends BaseRedis
         return $this->unshiftListItem($keyName, $value);
     }
 
+    public function lpop($keyName)
+    {
+        echo "lpop from list";
+
+        return $this->removeListItem($keyName);
+    }
+
+
+
     // public function __call($name, $arguments)
     // {
     //     // Note: value of $name is case sensitive.
